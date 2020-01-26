@@ -36,7 +36,7 @@ int main()
 
 
     // Read in the file of students data
-    inFile.open("C:\\Users\\Michael\\Documents\\CS150 Assignments\\Assignment 2\\students.txt");
+    inFile.open("YOUR PATH HERE");
 
     // Check if the file was open
     // if not throw an error
