@@ -27,8 +27,9 @@ int main()
     int gradeD = 6;
 
 
-    // Variable for reading in the file
+    // Variable for reading in the file (input)
     ifstream inFile;
+    // Variable for creating new file (output)
     ofstream gradesFile;
 
     // Create new file called grades.txt
