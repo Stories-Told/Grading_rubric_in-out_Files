@@ -71,7 +71,11 @@ int main()
             // If statement to check if the first number in final number grade
             // is the same as the int for each variable grade
             // if they match then thats the letter grade for that user
-            if (firstDigitOfNumberGrade == gradeA)
+            if (finalNumberGrade == 100)
+            {
+                finalLetterGrade = "A";
+            }
+            else if (firstDigitOfNumberGrade == gradeA)
             {
                 finalLetterGrade = "A";
             }
