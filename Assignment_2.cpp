@@ -19,14 +19,6 @@ int main()
     double testThree;
     double testFour;
 
-    // Variables to use to match against the final grade
-    // to get the letter grade
-    int gradeA = 9;
-    int gradeB = 8;
-    int gradeC = 7;
-    int gradeD = 6;
-
-
     // Variable for reading in the file (input)
     ifstream inFile;
     // Variable for creating new file (output)
@@ -50,50 +42,39 @@ int main()
     // Read from the stream
     if(inFile.is_open())
     {
+        // Runs while loop in order to:
+        // store text from the .txt file into variables and output on
+        // separate lines in formatted style
+        // ends when reaches the EOF(end of file)
         while(inFile >> firstName >> lastName >> testOne >> testTwo >> testThree >> testFour)
         {
             // Variable to calculate weighted grade
             double finalNumberGrade =  ((testOne * 0.2) + (testTwo * 0.25) +
-                                       (testThree * 0.25) + (testFour * 0.30));
-            // Variable to get the first digit of the final number grade
-            int firstDigitOfNumberGrade = finalNumberGrade;
+                                        (testThree * 0.25) + (testFour * 0.30));
 
             // String to store the letter grade
             string finalLetterGrade;
 
-            //loop to get the first digit
-            while(firstDigitOfNumberGrade >= 10)
-            {
-               firstDigitOfNumberGrade = firstDigitOfNumberGrade / 10;
-            }
-
-
-            // If statement to check if the first number in final number grade
-            // is the same as the int for each variable grade
-            // if they match then thats the letter grade for that user
-            if (finalNumberGrade == 100)
+            // If statement to find the letter grade of the student
+            if (finalNumberGrade >= 90)
             {
                 finalLetterGrade = "A";
             }
-            else if (firstDigitOfNumberGrade == gradeA)
-            {
-                finalLetterGrade = "A";
-            }
-            else if(firstDigitOfNumberGrade == gradeB)
+            else if(finalNumberGrade >= 80)
             {
                 finalLetterGrade = "B";
             }
-            else if(firstDigitOfNumberGrade == gradeC)
+            else if(finalNumberGrade >= 70)
             {
                 finalLetterGrade = "C";
             }
-            else if(firstDigitOfNumberGrade == gradeD)
+            else if(finalNumberGrade >= 60)
             {
                 finalLetterGrade = "D";
             }
             else
             {
-               finalLetterGrade = "F";
+                finalLetterGrade = "F";
             }
 
             // Output the information for the user to read
@@ -117,19 +98,19 @@ int main()
             // This reads into the new file called grades.txt
             // and saves it
             gradesFile << left
-                 << setw(15)
-                 << lastName
-                 << left
-                 << setw(15)
-                 << firstName
-                 << right
-                 << setw(6)
-                 << setprecision(3)
-                 << finalNumberGrade
-                 << right
-                 << setw(4)
-                 << finalLetterGrade
-                 << endl;
+                       << setw(15)
+                       << lastName
+                       << left
+                       << setw(15)
+                       << firstName
+                       << right
+                       << setw(6)
+                       << setprecision(3)
+                       << finalNumberGrade
+                       << right
+                       << setw(4)
+                       << finalLetterGrade
+                       << endl;
         }
     }
 
